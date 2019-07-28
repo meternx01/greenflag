@@ -75,7 +75,8 @@
                 android:autoLink="email"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:padding="4sp" />
 
             <TextView
                 android:id="@+id/tv_ea_cpassword"
@@ -97,6 +98,7 @@
                 android:layout_marginBottom="36dp"
                 android:background="#FFFFFF"
                 android:ems="10"
+                android:padding="4sp"
                 android:inputType="textPassword" />
 
             <TextView
@@ -119,6 +121,7 @@
                 android:layout_marginBottom="36dp"
                 android:background="#FFFFFF"
                 android:ems="10"
+                android:padding="4sp"
                 android:inputType="textPassword" />
 
             <TextView

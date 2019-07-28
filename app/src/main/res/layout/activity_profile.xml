@@ -4,6 +4,182 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".ProfileActivity">
 
+    <RelativeLayout
+        android:id="@+id/rl_pa"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_pa_profileimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+        <EditText
+            android:id="@+id/et_pa_nameentry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/iv_pa_profileimage"
+            android:autofillHints=""
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/txt_pa_name"
+            android:inputType="textPersonName"
+            android:padding="6dp" />
+
+        <EditText
+            android:id="@+id/et_pa_usernameentry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_pa_nameentry"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/iv_pa_profileimage"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/txt_pa_username"
+            android:inputType="textPersonName"
+            android:padding="6dp" />
+
+        <EditText
+            android:id="@+id/et_pa_passentry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_pa_usernameentry"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/iv_pa_profileimage"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/txt_pa_pass"
+            android:inputType="textPassword"
+            android:padding="6dp" />
+
+        <Button
+            android:id="@+id/btn_pa_button1"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_below="@id/et_pa_passentry"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/iv_pa_profileimage"
+            android:background="@drawable/gradient_button_background"
+            android:text="@string/txt_pa_button1txt"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_pa_ageentry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_pa_button1"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/iv_pa_profileimage"
+            android:autofillHints=""
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/txt_pa_age"
+            android:inputType="textPassword"
+            android:padding="6dp" />
+
+        <Button
+            android:id="@+id/btn_pa_datepicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_pa_ageentry"
+            android:layout_marginBottom="10dp"
+            android:text="@string/txt_pa_datebtn" />
+
+        <EditText
+            android:id="@+id/et_pa_dateentry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_pa_datepicker"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/iv_pa_profileimage"
+            android:autofillHints=""
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:inputType="date"
+            android:padding="6dp"
+            android:text="@string/txt_pa_dateentry" />
+
+        <RadioGroup
+            android:id="@+id/rg_pa_gendergroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_pa_dateentry"
+            android:layout_marginBottom="10dp">
+
+            <RadioButton
+                android:id="@+id/rb_pa_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="#FFFFFF"
+                android:text="@string/txt_pa_radiomale"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rb_pa_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="#FFFFFF"
+                android:text="@string/txt_pa_radiofemale"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rb_pa_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="#FFFFFF"
+                android:text="@string/txt_pa_radiononbinary"
+                android:textColor="#FFFFFF" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_pa_postal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rg_pa_gendergroup"
+            android:layout_alignStart="@id/rg_pa_gendergroup"
+            android:layout_marginBottom="10dp"
+            android:layout_toStartOf="@id/iv_pa_profileimage"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/txt_pa_postaddress"
+            android:inputType="textPersonName"
+            android:padding="6dp" />
+
+        <Button
+            android:id="@+id/btn_pa_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/rg_pa_gendergroup"
+
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@id/et_pa_postal"
+            android:background="@drawable/gradient_button_background"
+            android:text="@string/txt_pa_button2txt" />
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

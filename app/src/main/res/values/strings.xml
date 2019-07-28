@@ -12,5 +12,17 @@
     <string name="txt_ea_rpassword">Repeat password</string>
     <string name="txt_ea_passrules">Your password should have a minimum of 8 characters and contain at least one number, one uppercase and one lower case letter. You can use special characters</string>
     <string name="txt_ea_button">Next</string>
+    <string name="txt_pa_name">Name</string>
+    <string name="txt_pa_username">Username</string>
+    <string name="txt_pa_pass">Password</string>
+    <string name="txt_pa_button1txt">Change Photo</string>
+    <string name="txt_pa_age">Age</string>
+    <string name="txt_pa_datebtn">Choose Birth Date</string>
+    <string name="txt_pa_dateentry">Not Specified</string>
+    <string name="txt_pa_radiomale">Male</string>
+    <string name="txt_pa_radiofemale">Female</string>
+    <string name="txt_pa_radiononbinary">Not Specified</string>
+    <string name="txt_pa_postaddress">Postal Address (Opt)</string>
+    <string name="txt_pa_button2txt">Save</string>
 
 </resources>
