@@ -6,4 +6,11 @@
     <string name="txt_ma_list2">Request a rescue online</string>
     <string name="txt_ma_list3">Policy information</string>
     <string name="txt_ma_button">Create an account</string>
+    <string name="txt_ea_topbar">Create an account</string>
+    <string name="txt_ea_email">Email address</string>
+    <string name="txt_ea_cpassword">Create password</string>
+    <string name="txt_ea_rpassword">Repeat password</string>
+    <string name="txt_ea_passrules">Your password should have a minimum of 8 characters and contain at least one number, one uppercase and one lower case letter. You can use special characters</string>
+    <string name="txt_ea_button">Next</string>
+
 </resources>

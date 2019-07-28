@@ -4,6 +4,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".EmailActivity">
 
+    <RelativeLayout
+        android:id="@+id/rl_emailpass"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_ea_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ib_ea_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="#00000000"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_chevron_left_black_24dp" />
+
+            <TextView
+                android:id="@+id/tv_ea_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:fontFamily="@font/museosans_500"
+                android:gravity="center"
+                android:text="@string/txt_ea_topbar"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/dv_ea_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ll_ea_topbar"
+            android:layout_marginBottom="30dp"
+            android:background="@android:color/background_light" />
+
+        <RelativeLayout
+            android:id="@+id/rl_ea_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/dv_ea_divider"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <TextView
+                android:id="@+id/tv_ea_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/museosans_500"
+                android:text="@string/txt_ea_email"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp" />
+
+            <EditText
+                android:id="@+id/et_ea_emailentry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_ea_email"
+                android:layout_marginBottom="36dp"
+                android:autoLink="email"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/tv_ea_cpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_ea_emailentry"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/museosans_500"
+                android:text="@string/txt_ea_cpassword"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp" />
+
+            <EditText
+                android:id="@+id/et_ea_cpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_ea_cpassword"
+                android:layout_marginBottom="36dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/tv_ea_rpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_ea_cpassword"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/museosans_500"
+                android:text="@string/txt_ea_cpassword"
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp" />
+
+            <EditText
+                android:id="@+id/et_ea_rpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_ea_rpassword"
+                android:layout_marginBottom="36dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/tv_ea_passinstruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_ea_rpassword"
+                android:fontFamily="@font/museosans_300"
+                android:text="@string/txt_ea_passrules"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_ea_next"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/gradient_button_background"
+                android:fontFamily="@font/museosans_300"
+                android:text="@string/txt_ea_button"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
