@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -18,6 +22,9 @@ public class ProfileActivity extends AppCompatActivity {
     Button btn_pa_button1, btn_pa_button2, btn_pa_datepicker;
     DatePickerDialog datePickerDialog;
     EditText et_pa_dateentry;
+    Spinner sp_pa_country;
+
+    String[] countryNames = {"Not-Specified", "Malaysia", "United States", "Indonesia","France", "Italy", "Singapore", "New Zealand", "India"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,25 @@ public class ProfileActivity extends AppCompatActivity {
         btn_pa_button2 = (Button) findViewById(R.id.btn_pa_button2);
         btn_pa_datepicker = (Button) findViewById(R.id.btn_pa_datepicker);
         et_pa_dateentry = (EditText) findViewById(R.id.et_pa_dateentry);
+        sp_pa_country = (Spinner) findViewById(R.id.sp_pa_country);
+
+
+
+        sp_pa_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item,countryNames);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp_pa_country.setAdapter(aa);;
 
         btn_pa_button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,4 +98,5 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     }
+
 }

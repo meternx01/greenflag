@@ -155,19 +155,15 @@
                 android:textColor="#FFFFFF" />
         </RadioGroup>
 
-        <EditText
-            android:id="@+id/et_pa_postal"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/sp_pa_country"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rg_pa_gendergroup"
-            android:layout_alignStart="@id/rg_pa_gendergroup"
-            android:layout_marginBottom="10dp"
             android:layout_toStartOf="@id/iv_pa_profileimage"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:hint="@string/txt_pa_postaddress"
-            android:inputType="textPersonName"
-            android:padding="6dp" />
+            android:background="#FFF"
+            android:padding="6dp"
+            android:prompt="@string/txt_pa_postaddress" />
 
         <Button
             android:id="@+id/btn_pa_button2"
@@ -177,7 +173,7 @@
 
             android:layout_marginLeft="6dp"
             android:layout_marginBottom="10dp"
-            android:layout_toEndOf="@id/et_pa_postal"
+            android:layout_toEndOf="@id/sp_pa_country"
             android:background="@drawable/gradient_button_background"
             android:text="@string/txt_pa_button2txt" />
 
