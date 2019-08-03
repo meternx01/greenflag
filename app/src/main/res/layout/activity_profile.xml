@@ -95,7 +95,6 @@
             android:background="#FFFFFF"
             android:ems="10"
             android:hint="@string/txt_pa_age"
-            android:inputType="textPassword"
             android:padding="6dp" />
 
         <Button
