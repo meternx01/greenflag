@@ -6,12 +6,15 @@ import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
     Button btn_pa_button1, btn_pa_button2, btn_pa_datepicker;
     DatePickerDialog datePickerDialog;
     EditText et_pa_dateentry, et_pa_nameentry, et_pa_usernameentry, et_pa_passentry, et_pa_ageentry;
+    RadioGroup rg_pa_gendergroup;
     Spinner sp_pa_country;
 
     String[] countryNames = {"Not-Specified", "Malaysia", "United States", "Indonesia","France", "Italy", "Singapore", "New Zealand", "India"};
@@ -43,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
         et_pa_ageentry = (EditText) findViewById(R.id.et_pa_ageentry);
         et_pa_dateentry = (EditText) findViewById(R.id.et_pa_dateentry);
         sp_pa_country = (Spinner) findViewById(R.id.sp_pa_country);
+        rg_pa_gendergroup = (RadioGroup) findViewById(R.id.rg_pa_gendergroup);
 
 
 
@@ -72,6 +77,16 @@ public class ProfileActivity extends AppCompatActivity {
         btn_pa_button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String selection = "";
+
+                if(rg_pa_gendergroup.getCheckedRadioButtonId()!=-1){
+                        int id = rg_pa_gendergroup.getCheckedRadioButtonId();
+                    View radioButton = rg_pa_gendergroup.findViewById(id);
+                    int radioId = rg_pa_gendergroup.indexOfChild(radioButton);
+                    RadioButton btn = (RadioButton) rg_pa_gendergroup.getChildAt(radioId);
+                    selection = (String) btn.getText();
+                    Log.i(null, "Selection: " + selection);
+                    }
 
                 Profile inputProfile = new Profile(
                         et_pa_nameentry.getText().toString(),
@@ -79,6 +94,7 @@ public class ProfileActivity extends AppCompatActivity {
                         et_pa_passentry.getText().toString(),
                         et_pa_dateentry.getText().toString(),
                         sp_pa_country.getSelectedItem().toString(),
+                        selection,
                         Integer.parseInt(et_pa_ageentry.getText().toString())
                 );
                 saveEntry(inputProfile);
@@ -126,6 +142,7 @@ public class ProfileActivity extends AppCompatActivity {
         values.put(DatabaseUtil.ProfileTable.passwordColumn, input.password);
         values.put(DatabaseUtil.ProfileTable.birthdateColumn, input.birthDate);
         values.put(DatabaseUtil.ProfileTable.countryColumn, input.country);
+        values.put(DatabaseUtil.ProfileTable.genderColumn, input.gender);
         values.put(DatabaseUtil.ProfileTable.ageColumn, input.age);
 
         //
