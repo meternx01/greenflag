@@ -24,5 +24,8 @@
     <string name="txt_pa_radiononbinary">Not Specified</string>
     <string name="txt_pa_postaddress">Postal Address (Opt)</string>
     <string name="txt_pa_button2txt">Save</string>
+    <string name="title_activity_recycler_view">recyclerView</string>
+    <string name="title_activity_profile_list">ProfileList</string>
+    <string name="title_activity_profile_view">ProfileView</string>
 
 </resources>
