@@ -16,4 +16,13 @@ public class Profile {
         this.age = age;
     }
 
+    public Profile() {
+        this.name = "";
+        this.userName = "";
+        this.password = "";
+        this.birthDate = "";
+        this.country = "";
+        this.gender = "";
+        this.age = 0;
+    }
 }

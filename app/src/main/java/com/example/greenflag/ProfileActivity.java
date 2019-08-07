@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ import java.util.Calendar;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_PROFILE = 3333;
     RelativeLayout rl_pa;
     Button btn_pa_button1, btn_pa_button2, btn_pa_datepicker;
     DatePickerDialog datePickerDialog;
@@ -30,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
     RadioGroup rg_pa_gendergroup;
     Spinner sp_pa_country;
 
-    String[] countryNames = {"Not-Specified", "Malaysia", "United States", "Indonesia","France", "Italy", "Singapore", "New Zealand", "India"};
+    String[] countryNames = {"Not-Specified", "Malaysia", "United States", "Indonesia", "France", "Italy", "Singapore", "New Zealand", "India"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,6 @@ public class ProfileActivity extends AppCompatActivity {
         rg_pa_gendergroup = (RadioGroup) findViewById(R.id.rg_pa_gendergroup);
 
 
-
         sp_pa_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -63,9 +64,10 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item,countryNames);
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, countryNames);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_pa_country.setAdapter(aa);;
+        sp_pa_country.setAdapter(aa);
+        ;
 
         btn_pa_button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,14 +81,14 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String selection = "";
 
-                if(rg_pa_gendergroup.getCheckedRadioButtonId()!=-1){
-                        int id = rg_pa_gendergroup.getCheckedRadioButtonId();
+                if (rg_pa_gendergroup.getCheckedRadioButtonId() != -1) {
+                    int id = rg_pa_gendergroup.getCheckedRadioButtonId();
                     View radioButton = rg_pa_gendergroup.findViewById(id);
                     int radioId = rg_pa_gendergroup.indexOfChild(radioButton);
                     RadioButton btn = (RadioButton) rg_pa_gendergroup.getChildAt(radioId);
                     selection = (String) btn.getText();
                     Log.i(null, "Selection: " + selection);
-                    }
+                }
 
                 Profile inputProfile = new Profile(
                         et_pa_nameentry.getText().toString(),
@@ -98,7 +100,13 @@ public class ProfileActivity extends AppCompatActivity {
                         Integer.parseInt(et_pa_ageentry.getText().toString())
                 );
                 saveEntry(inputProfile);
+                Intent intent = new Intent(
+                        getBaseContext(),
+                        ProfileView.class
+                );
 
+                startActivity(intent);
+              
             }
         });
         final Calendar c = Calendar.getInstance();
@@ -107,12 +115,11 @@ public class ProfileActivity extends AppCompatActivity {
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
         datePickerDialog = new DatePickerDialog(ProfileActivity.this, new
-                DatePickerDialog.OnDateSetListener()
-                {
+                DatePickerDialog.OnDateSetListener() {
 
-                    @Override public void onDateSet(DatePicker view, int year, int
-                            monthOfYear, int dayOfMonth)
-                    {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int
+                            monthOfYear, int dayOfMonth) {
                         // set day of month , month and year value in the edit text
                         et_pa_dateentry.setText((monthOfYear + 1) + "/" + dayOfMonth + "/" + year);
 
@@ -131,8 +138,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    public void saveEntry(Profile input){
-        ProfileDatabase database = new ProfileDatabase(this, DatabaseUtil.databaseName, null ,DatabaseUtil.databaseVersion);
+    public void saveEntry(Profile input) {
+        ProfileDatabase database = new ProfileDatabase(this, DatabaseUtil.databaseName, null, DatabaseUtil.databaseVersion);
         SQLiteDatabase saveData = database.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -146,10 +153,9 @@ public class ProfileActivity extends AppCompatActivity {
         values.put(DatabaseUtil.ProfileTable.ageColumn, input.age);
 
         //
-        if(saveData.insert(DatabaseUtil.ProfileTable.tablename, null, values) > 0){
+        if (saveData.insert(DatabaseUtil.ProfileTable.tablename, null, values) > 0) {
             Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
     }
